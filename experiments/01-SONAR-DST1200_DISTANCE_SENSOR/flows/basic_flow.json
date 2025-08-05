@@ -41,27 +41,9 @@
         "y": 200,
         "wires": [
             [
-                "dfee55a64425c6a8",
-                "8601299512b69b61"
+                "dfee55a64425c6a8"
             ]
         ]
-    },
-    {
-        "id": "8601299512b69b61",
-        "type": "debug",
-        "z": "22302785229f0efd",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": false,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "dfee55a64425c6a8",
@@ -86,26 +68,10 @@
         "y": 200,
         "wires": [
             [
-                "985f6f108b74dff9"
+                "985f6f108b74dff9",
+                "160f7979d9ad5ee3"
             ]
         ]
-    },
-    {
-        "id": "088e71d03424cdcf",
-        "type": "debug",
-        "z": "22302785229f0efd",
-        "name": "debug 2",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "985f6f108b74dff9",
@@ -118,12 +84,12 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 980,
+        "x": 1040,
         "y": 200,
         "wires": [
             [
-                "088e71d03424cdcf",
-                "6e5b7b7d4ad54470"
+                "6e5b7b7d4ad54470",
+                "25ad88deee4f5131"
             ]
         ]
     },
@@ -151,8 +117,55 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 1180,
-        "y": 260,
+        "x": 1380,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "25ad88deee4f5131",
+        "type": "osc",
+        "z": "22302785229f0efd",
+        "name": "",
+        "path": "/phidget/distance",
+        "metadata": false,
+        "x": 1370,
+        "y": 200,
+        "wires": [
+            [
+                "f5f6a73b03aeefc0"
+            ]
+        ]
+    },
+    {
+        "id": "f5f6a73b03aeefc0",
+        "type": "udp out",
+        "z": "22302785229f0efd",
+        "name": "",
+        "addr": "10.10.155.194",
+        "iface": "",
+        "port": "12345",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 1590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "160f7979d9ad5ee3",
+        "type": "debug",
+        "z": "22302785229f0efd",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 100,
         "wires": []
     },
     {
@@ -175,13 +188,14 @@
         "hidden": false
     },
     {
-        "id": "37c77a5d5e3ae178",
+        "id": "57535c9f2b0f60e7",
         "type": "global-config",
         "env": [],
         "modules": {
             "node-red-contrib-phidget22": "2.0.1",
             "node-red-node-smooth": "0.1.2",
-            "node-red-dashboard": "3.6.5"
+            "node-red-dashboard": "3.6.5",
+            "node-red-contrib-osc": "1.1.0"
         }
     }
 ]
