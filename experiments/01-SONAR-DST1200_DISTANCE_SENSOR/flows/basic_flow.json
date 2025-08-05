@@ -59,7 +59,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 780,
         "y": 120,
         "wires": []
     },
@@ -82,11 +82,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
+        "x": 800,
         "y": 200,
         "wires": [
             [
-                "088e71d03424cdcf"
+                "985f6f108b74dff9"
             ]
         ]
     },
@@ -95,7 +95,7 @@
         "type": "debug",
         "z": "22302785229f0efd",
         "name": "debug 2",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -103,16 +103,85 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 980,
+        "x": 1180,
         "y": 200,
         "wires": []
     },
     {
-        "id": "2884aa2bbabd8e40",
+        "id": "985f6f108b74dff9",
+        "type": "smooth",
+        "z": "22302785229f0efd",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 980,
+        "y": 200,
+        "wires": [
+            [
+                "088e71d03424cdcf",
+                "6e5b7b7d4ad54470"
+            ]
+        ]
+    },
+    {
+        "id": "6e5b7b7d4ad54470",
+        "type": "ui_gauge",
+        "z": "22302785229f0efd",
+        "name": "SONAR",
+        "group": "d2bba3847534bfa8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distance",
+        "label": "mm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1180,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d2bba3847534bfa8",
+        "type": "ui_group",
+        "name": "Sonar_Data",
+        "tab": "49aaed1a6f1f4348",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "49aaed1a6f1f4348",
+        "type": "ui_tab",
+        "name": "Dashboard_1",
+        "icon": "Dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "37c77a5d5e3ae178",
         "type": "global-config",
         "env": [],
         "modules": {
-            "node-red-contrib-phidget22": "2.0.1"
+            "node-red-contrib-phidget22": "2.0.1",
+            "node-red-node-smooth": "0.1.2",
+            "node-red-dashboard": "3.6.5"
         }
     }
 ]
