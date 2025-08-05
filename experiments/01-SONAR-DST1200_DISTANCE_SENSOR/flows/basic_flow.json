@@ -1,0 +1,118 @@
+[
+    {
+        "id": "22302785229f0efd",
+        "type": "tab",
+        "label": "HUB0000_0_SKETCH",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "84b990b1d4cb8777",
+        "type": "phidget22-connect",
+        "z": "22302785229f0efd",
+        "name": "",
+        "port": "5661",
+        "hostname": "localhost",
+        "debug": false,
+        "retry": false,
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "0cd44ff11459f3c2"
+            ]
+        ]
+    },
+    {
+        "id": "0cd44ff11459f3c2",
+        "type": "phidget22-distancesensor",
+        "z": "22302785229f0efd",
+        "name": "SONAR",
+        "channel": 0,
+        "deviceSerialNumber": -1,
+        "hubPort": 0,
+        "debug": false,
+        "dataInterval": "100",
+        "distanceChangeTrigger": 0,
+        "sonarQuietMode": false,
+        "openTimeout": "5000",
+        "x": 520,
+        "y": 200,
+        "wires": [
+            [
+                "dfee55a64425c6a8",
+                "8601299512b69b61"
+            ]
+        ]
+    },
+    {
+        "id": "8601299512b69b61",
+        "type": "debug",
+        "z": "22302785229f0efd",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dfee55a64425c6a8",
+        "type": "change",
+        "z": "22302785229f0efd",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.distances[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [
+                "088e71d03424cdcf"
+            ]
+        ]
+    },
+    {
+        "id": "088e71d03424cdcf",
+        "type": "debug",
+        "z": "22302785229f0efd",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2884aa2bbabd8e40",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-phidget22": "2.0.1"
+        }
+    }
+]
