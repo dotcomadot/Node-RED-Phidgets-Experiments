@@ -1,19 +1,26 @@
-# Node-RED and Phidgets Experiments
-
+Node-RED and Phidgets Experiments
 This repository contains a collection of experiments using Node-RED to interface with various Phidgets devices.
 
-## Folder Structure
+Folder Structure
+documentation/: General guides, manuals, and notes on Node-RED and Phidgets.
 
-* `documentation/`: General guides, manuals, and notes on Node-RED and Phidgets.
-* `experiments/`: Individual, self-contained projects, each in its own subfolder.
-* `shared_flows/`: Reusable Node-RED flows and subflows.
+experiments/: Individual, self-contained projects, each in its own subfolder.
 
-## Getting Started
+shared_flows/: Reusable Node-RED flows and subflows.
 
-Each experiment folder contains a `flows/` directory with the Node-RED JSON file, and a `README.md` with instructions on how to set it up and run it.
+Getting Started
+Each experiment folder contains a flows/ directory with the Node-RED JSON file, and a README.md with instructions on how to set it up and run it.
 
-## Hardware Used
+Hardware Used
+Phidgets VINT HUB0000_0
 
-* Phidgets VINT HUB0000_0
-* Phidgets SONAR Sensor
-* ... 
+Phidgets DST1200_0 Sonar Sensor
+
+...
+
+Experiments
+01-Sonar-DST1200_Distance_Sensor: Reads distance data from a DST1200_0 sonar sensor and cleans the output for easy use.
+
+Flow File
+
+Learn more
