@@ -1,0 +1,12 @@
+# OS generated files
+.DS_Store
+
+# Node-RED specific files (if you have them)
+# These are often generated in the user directory
+# and are not part of your flows.
+package-lock.json
+node_modules/
+
+# Add any other temporary files or sensitive data here
+# For example, if you store API keys or passwords in a file:
+# secrets.json
