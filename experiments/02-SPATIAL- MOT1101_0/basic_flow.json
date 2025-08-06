@@ -1,0 +1,121 @@
+[
+  {
+    "id": "motorSpatialTab",
+    "type": "tab",
+    "label": "HUB5000_SPATIAL",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "connectSpatial",
+    "type": "phidget22-connect",
+    "z": "motorSpatialTab",
+    "name": "",
+    "hostname": "localhost",
+    "port": "5661",
+    "debug": false,
+    "retry": true,
+    "x": 200,
+    "y": 100,
+    "wires": [["spatialNode"]]
+  },
+  {
+    "id": "spatialNode",
+    "type": "phidget22-spatial",
+    "z": "motorSpatialTab",
+    "name": "Spatial",
+    "deviceSerialNumber": -1,
+    "hubPort": 0,
+    "accelerationChangeTrigger": "0",
+    "angularRateChangeTrigger": "0",
+    "magneticFieldChangeTrigger": "0",
+    "dataInterval": "100",
+    "openTimeout": "5000",
+    "x": 460,
+    "y": 100,
+    "wires": [["extractAccel"]]
+  },
+  {
+    "id": "extractAccel",
+    "type": "change",
+    "z": "motorSpatialTab",
+    "name": "Extract accel",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.acceleration",
+        "tot": "msg"
+      }
+    ],
+    "x": 700,
+    "y": 100,
+    "wires": [["debugAccel", "uiChart"]]
+  },
+  {
+    "id": "debugAccel",
+    "type": "debug",
+    "z": "motorSpatialTab",
+    "name": "Accel Debug",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 920,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "uiChart",
+    "type": "ui_chart",
+    "z": "motorSpatialTab",
+    "name": "Accel Chart",
+    "group": "uiGroupAccel",
+    "order": 0,
+    "width": 6,
+    "height": 3,
+    "label": "Acceleration (m/s²)",
+    "chartType": "line",
+    "legend": "true",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": false,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": "7",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "colors": ["#1f77b4","#ff7f0e","#2ca02c"],
+    "outputs": 3,
+    "x": 920,
+    "y": 180,
+    "wires": [[],[],[]]
+  },
+  {
+    "id": "uiGroupAccel",
+    "type": "ui_group",
+    "z": "",
+    "name": "Spatial Data",
+    "tab": "uiTab",
+    "order": 1,
+    "disp": true,
+    "width": 6,
+    "collapse": false
+  },
+  {
+    "id": "uiTab",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Spatial Dashboard",
+    "icon": "dashboard",
+    "order": 3,
+    "disabled": false,
+    "hidden": false
+  }
+]
