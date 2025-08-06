@@ -1,6 +1,6 @@
 [
     {
-        "id": "22302785229f0efd",
+        "id": "0346cd31e8d37ccc",
         "type": "tab",
         "label": "HUB0000_0_SKETCH",
         "disabled": false,
@@ -8,26 +8,27 @@
         "env": []
     },
     {
-        "id": "84b990b1d4cb8777",
+        "id": "14c0aeced4317a7d",
         "type": "phidget22-connect",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "",
         "port": "5661",
         "hostname": "localhost",
         "debug": false,
         "retry": false,
-        "x": 300,
+        "x": 560,
         "y": 200,
         "wires": [
             [
-                "0cd44ff11459f3c2"
+                "1c473e9b3b15b6d3",
+                "3cf167234a94c1fd"
             ]
         ]
     },
     {
-        "id": "0cd44ff11459f3c2",
+        "id": "1c473e9b3b15b6d3",
         "type": "phidget22-distancesensor",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "SONAR",
         "channel": 0,
         "deviceSerialNumber": -1,
@@ -37,18 +38,18 @@
         "distanceChangeTrigger": 0,
         "sonarQuietMode": false,
         "openTimeout": "5000",
-        "x": 520,
-        "y": 200,
+        "x": 820,
+        "y": 140,
         "wires": [
             [
-                "dfee55a64425c6a8"
+                "ed8451a946e902cf"
             ]
         ]
     },
     {
-        "id": "dfee55a64425c6a8",
+        "id": "ed8451a946e902cf",
         "type": "change",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "",
         "rules": [
             {
@@ -64,19 +65,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 200,
+        "x": 1100,
+        "y": 140,
         "wires": [
             [
-                "985f6f108b74dff9",
-                "160f7979d9ad5ee3"
+                "b97dee4516b3d2cf"
             ]
         ]
     },
     {
-        "id": "985f6f108b74dff9",
+        "id": "b97dee4516b3d2cf",
         "type": "smooth",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "",
         "property": "payload",
         "action": "mean",
@@ -84,19 +84,19 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 1040,
-        "y": 200,
+        "x": 1340,
+        "y": 140,
         "wires": [
             [
-                "6e5b7b7d4ad54470",
-                "25ad88deee4f5131"
+                "695c18b73f6dedd9",
+                "37d6426a709c7eb9"
             ]
         ]
     },
     {
-        "id": "6e5b7b7d4ad54470",
+        "id": "695c18b73f6dedd9",
         "type": "ui_gauge",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "SONAR",
         "group": "d2bba3847534bfa8",
         "order": 0,
@@ -117,29 +117,29 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 1380,
-        "y": 120,
+        "x": 1680,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "25ad88deee4f5131",
+        "id": "37d6426a709c7eb9",
         "type": "osc",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "",
         "path": "/phidget/distance",
         "metadata": false,
-        "x": 1370,
-        "y": 200,
+        "x": 1670,
+        "y": 140,
         "wires": [
             [
-                "f5f6a73b03aeefc0"
+                "7f4dd6f122f161dc"
             ]
         ]
     },
     {
-        "id": "f5f6a73b03aeefc0",
+        "id": "7f4dd6f122f161dc",
         "type": "udp out",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "",
         "addr": "10.10.155.194",
         "iface": "",
@@ -148,25 +148,136 @@
         "outport": "",
         "base64": false,
         "multicast": "false",
-        "x": 1590,
-        "y": 200,
+        "x": 1910,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "160f7979d9ad5ee3",
+        "id": "3cf167234a94c1fd",
+        "type": "phidget22-lightsensor",
+        "z": "0346cd31e8d37ccc",
+        "name": "",
+        "channel": "0",
+        "deviceSerialNumber": -1,
+        "debug": false,
+        "dataInterval": "125",
+        "hubPort": "1",
+        "illuminanceChangeTrigger": 0,
+        "openTimeout": "5000",
+        "x": 840,
+        "y": 280,
+        "wires": [
+            [
+                "4179ba16c28beaf5"
+            ]
+        ]
+    },
+    {
+        "id": "75c53f1364916a76",
+        "type": "ui_gauge",
+        "z": "0346cd31e8d37ccc",
+        "name": "Light Sensor",
+        "group": "078e9734e2bcd054",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Iluminance",
+        "label": "Lux",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1670,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9f0ec8b0a5993146",
+        "type": "osc",
+        "z": "0346cd31e8d37ccc",
+        "name": "",
+        "path": "/phidget/iluminance",
+        "metadata": false,
+        "x": 1670,
+        "y": 320,
+        "wires": [
+            [
+                "7f4dd6f122f161dc"
+            ]
+        ]
+    },
+    {
+        "id": "4179ba16c28beaf5",
+        "type": "smooth",
+        "z": "0346cd31e8d37ccc",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 1080,
+        "y": 280,
+        "wires": [
+            [
+                "75c53f1364916a76",
+                "9f0ec8b0a5993146",
+                "a291f76dd4cb7b96"
+            ]
+        ]
+    },
+    {
+        "id": "c494213b917ad87d",
         "type": "debug",
-        "z": "22302785229f0efd",
+        "z": "0346cd31e8d37ccc",
         "name": "debug 1",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 100,
+        "x": 1600,
+        "y": 460,
         "wires": []
+    },
+    {
+        "id": "a291f76dd4cb7b96",
+        "type": "change",
+        "z": "0346cd31e8d37ccc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.illuminance[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 460,
+        "wires": [
+            [
+                "c494213b917ad87d"
+            ]
+        ]
     },
     {
         "id": "d2bba3847534bfa8",
@@ -174,6 +285,17 @@
         "name": "Sonar_Data",
         "tab": "49aaed1a6f1f4348",
         "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "078e9734e2bcd054",
+        "type": "ui_group",
+        "name": "LUX",
+        "tab": "49aaed1a6f1f4348",
+        "order": 3,
         "disp": true,
         "width": 6,
         "collapse": false,
@@ -188,7 +310,7 @@
         "hidden": false
     },
     {
-        "id": "57535c9f2b0f60e7",
+        "id": "ab785572a4ad407d",
         "type": "global-config",
         "env": [],
         "modules": {
