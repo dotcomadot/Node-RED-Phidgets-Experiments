@@ -1,0 +1,124 @@
+[
+    {
+        "id": "ee050cf5b351835d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "063ade94f38ddb85",
+        "type": "phidget22-connect",
+        "z": "ee050cf5b351835d",
+        "name": "",
+        "port": "5661",
+        "hostname": "192.168.1.84",
+        "debug": false,
+        "retry": true,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "6ddb6736827ff89c",
+                "950d37ac28ecbcd8"
+            ]
+        ]
+    },
+    {
+        "id": "6ddb6736827ff89c",
+        "type": "phidget22-encoder",
+        "z": "ee050cf5b351835d",
+        "name": "",
+        "channel": 0,
+        "deviceSerialNumber": -1,
+        "hubPort": 0,
+        "debug": false,
+        "IOMode": 1,
+        "dataInterval": "20",
+        "positionChangeTrigger": 0,
+        "enabled": false,
+        "openTimeout": "5000",
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "fdb62a151ec50f4c"
+            ]
+        ]
+    },
+    {
+        "id": "d529206a788503db",
+        "type": "debug",
+        "z": "ee050cf5b351835d",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "fdb62a151ec50f4c",
+        "type": "function",
+        "z": "ee050cf5b351835d",
+        "name": "function 1",
+        "func": "// Set your threshold here\nconst threshold = 2; // Minimum counts to register as movement\n\nif (Math.abs(msg.payload.positionChange) >= threshold) {\n    return msg; // Pass the message only if movement exceeds threshold\n}\nreturn null; // Ignore small movements and idle readings\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 120,
+        "wires": [
+            [
+                "d529206a788503db"
+            ]
+        ]
+    },
+    {
+        "id": "950d37ac28ecbcd8",
+        "type": "phidget22-encoder",
+        "z": "ee050cf5b351835d",
+        "name": "",
+        "channel": 0,
+        "deviceSerialNumber": -1,
+        "hubPort": "1",
+        "debug": false,
+        "IOMode": 1,
+        "dataInterval": "20",
+        "positionChangeTrigger": 0,
+        "enabled": false,
+        "openTimeout": "5000",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "89e61464411540db"
+            ]
+        ]
+    },
+    {
+        "id": "89e61464411540db",
+        "type": "debug",
+        "z": "ee050cf5b351835d",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 220,
+        "wires": []
+    }
+]

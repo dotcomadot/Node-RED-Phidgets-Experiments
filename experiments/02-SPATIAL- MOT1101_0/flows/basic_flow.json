@@ -51,7 +51,22 @@
     ],
     "x": 700,
     "y": 100,
-    "wires": [["debugAccel", "uiChart"]]
+    "wires": [["splitAxes","debugAccel"]]
+  },
+  {
+    "id": "splitAxes",
+    "type": "function",
+    "z": "motorSpatialTab",
+    "name": "Split XYZ for Chart",
+    "func": "let acc = msg.payload;\n\nreturn [\n    { topic: \"X\", payload: acc[0] },\n    { topic: \"Y\", payload: acc[1] },\n    { topic: \"Z\", payload: acc[2] }\n];",
+    "outputs": 3,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 930,
+    "y": 140,
+    "wires": [["uiChart"],["uiChart"],["uiChart"]]
   },
   {
     "id": "debugAccel",
@@ -65,8 +80,8 @@
     "complete": "payload",
     "statusVal": "",
     "statusType": "auto",
-    "x": 920,
-    "y": 100,
+    "x": 930,
+    "y": 80,
     "wires": []
   },
   {
@@ -93,8 +108,8 @@
     "useOneColor": false,
     "colors": ["#1f77b4","#ff7f0e","#2ca02c"],
     "outputs": 3,
-    "x": 920,
-    "y": 180,
+    "x": 1200,
+    "y": 140,
     "wires": [[],[],[]]
   },
   {
